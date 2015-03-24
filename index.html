@@ -1,5 +1,5 @@
 <!doctype html>
-<html manifest="offline.appcache" >
+<html manifest="offline.appcache">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,31 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
     <title>liquidity</title>
 
-    <!-- Add to homescreen
-    <link rel="manifest" href="manifest.json">
-      --><!-- Fallback to homescreen for Chrome <39 on Android
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="liquidity">
-    <link rel="icon" sizes="192x192" href="img/touch/chrome-touch-icon-192x192.png">
-
-      -->
-
-
-
-    <!-- Add to homescreen for Safari on iOS  -->
+    <!-- Add to homescreen for Safari on iOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- iOS menu bar OVER our app -->
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="liquidity">
     <link rel="apple-touch-icon" href="img/touch/apple-touch-icon.png">
 
-    <!-- Tile icon for Win8 (144x144 + tile color)
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#4285F4">
+    <!-- Add to homescreen for Android -->
+    <link rel="manifest" href="manifest.json">
+    <!-- Fallback to homescreen for Chrome <39 on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="liquidity">
+    <link rel="icon" sizes="192x192" href="img/touch/chrome-touch-icon-192x192.png">
 
-    <meta name="theme-color" content="#4285F4">
-      -->
-    <link rel="shortcut icon" href="/images/touch/favicon.ico">
+    <link rel="shortcut icon" href="/img/touch/favicon.ico">
 
     <link rel="stylesheet" href="styles/main.css">
 </head>
@@ -51,9 +41,6 @@
 
     <h2 id="get-started">I Just Dranked:</h2>
 
-    <!--<p>--><!--<button data-beverage="beer">--><!--<img src="img/beer.png"/>Beer--><!--</button>--><!--<button data-beverage="coffee">-->
-    <!--<img src="img/coffee.png"/>Coffee--><!--</button>--><!--<button data-beverage="water">--><!--<img src="img/water.png"/>Water-->
-    <!--</button>--><!--</p>-->
     <p data-bind="foreach: availableDrinks">
         <button data-bind="click: $parent.addDrink"><img data-bind="attr: {src: 'img/' + $data + '.png'}"/><span data-bind="text: $data"></span>
         </button>
