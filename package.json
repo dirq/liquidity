@@ -1,0 +1,7 @@
+{
+  "name": "Liquidity",
+  "version": "0.0.1",
+  "devDependencies": {
+    "gulp-replace": "^0.5.3"
+  }
+}

@@ -1,0 +1,47 @@
+# ----------------------------------------------------------------------
+# | Mime types
+# ----------------------------------------------------------------------
+<IfModule mod_mime.c>
+
+    # Data interchange
+    AddType application/json                            json map topojson
+
+    # JavaScript
+    AddType application/javascript                      js
+
+    # Manifest files
+
+    <Files "manifest.json">
+       AddType application/manifest+json                json
+    </Files>
+
+    AddType application/x-web-app-manifest+json         webapp
+    AddType text/cache-manifest                         appcache
+
+    # Web fonts
+    AddType application/font-woff                       woff
+    AddType application/font-woff2                      woff2
+    AddType application/vnd.ms-fontobject               eot
+    AddType application/x-font-ttf                      ttc ttf
+    AddType font/opentype                               otf
+
+    AddType image/x-icon                                cur ico
+
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# | Expires headers                                                    |
+# ----------------------------------------------------------------------
+<IfModule mod_expires.c>
+
+    ExpiresActive on
+    ExpiresDefault                                      "access plus 0 seconds"
+
+    # Manifest files
+    ExpiresByType application/manifest+json             "access plus 1 year"
+
+    ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
+    ExpiresByType text/cache-manifest                   "access plus 0 seconds"
+
+</IfModule>

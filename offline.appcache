@@ -1,0 +1,41 @@
+CACHE MANIFEST
+#v:9155
+
+CACHE:
+# html files
+# You don't need to include index.html as it is implicitly included
+/
+index.html
+
+# js files
+scripts/lib/modernizr.custom.js
+scripts/lib/jquery-1.11.2.min.js
+scripts/lib/knockout-3.3.0.js
+scripts/common.js
+scripts/liquidity.js
+
+# css files
+styles/main.css
+
+# font files
+styles/fonts/RobotoCondensed-Light.eot
+styles/fonts/RobotoCondensed-Light.ttf
+styles/fonts/RobotoCondensed-Light.woff
+
+# images
+img/beer.png
+img/coffee.png
+img/water.png
+img/disconnected.svg
+
+# icons
+img/touch/apple-touch-icon.png
+img/touch/chrome-touch-icon-192x192.png
+img/touch/favicon.ico
+img/touch/icon-128x128.png
+img/touch/ms-touch-icon-144x144-precomposed.png
+
+
+NETWORK:
+api/ping.php
+

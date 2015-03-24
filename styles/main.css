@@ -1,0 +1,117 @@
+/*
+#4285F4
+
+#105B63
+#240
+#FFD34E
+#DB9E36
+#BD4932
+*/
+@font-face {
+	font-family: 'Roboto Condensed';
+	font-style: normal;
+	font-weight: 300;
+	src: url(fonts/RobotoCondensed-Light.eot);
+	src: local('Roboto Condensed Light'), local('RobotoCondensed-Light'), url(fonts/RobotoCondensed-Light.eot) format('embedded-opentype'), url(fonts/RobotoCondensed-Light.woff) format('woff');
+}
+html, button, input, select, textarea {
+	color: #222; }
+a {
+	color: #00E;
+	cursor: pointer;
+}
+a:visited {
+	color: #551A8B; }
+a:hover {
+	color: #06E; }
+body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-size: 1em;
+	line-height: 1.4;
+	position: relative;
+	font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
+	font-weight: 300;
+	background-color: #FFF;
+	box-sizing: border-box;
+	min-height: 100%; }
+h1, h2, h3, h4 {
+	font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif; }
+p, ul, ol {
+	font-size: 19px; }
+header {
+	background-color: #4285F4;
+	color: #FFF;
+	margin: 0; }
+header h1 {
+	font-weight: normal;
+	padding: .75em 0;
+	margin: 0; }
+header h1 strong {
+	font-family: arial, serif;
+	font-weight: 600; }
+button {
+	background-color: #4285F4;
+	border: 0;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	color: #FFF;
+	margin: 0 3px;
+	text-transform: uppercase;
+	font-size: 12px;
+	text-align: center;
+	outline: none;
+	cursor: pointer;
+}
+button img {
+	width: 30px;
+	height: 30px;
+	display: block;
+	margin: 0 auto 5px; }
+button:hover {
+	background-color: #1266F1; }
+button:active {
+	box-shadow: inset 15px 15px 10px -10px rgba(0, 0, 0, 0.5); }
+
+#disconnected{
+
+	float:right;margin:20px 30px;color:#EEE;text-align:center;}
+#disconnected img{display:block;margin:0 auto;}
+
+
+
+#drinkLog {
+	margin: 1em 0;
+	padding: 4px;
+	list-style: none;
+}
+#drinkLog li:hover {
+	background-color: #EEE;
+}
+.logEntry {
+	display: inline-block;
+	width: 75%;
+}
+.container {
+	margin: 0 auto;
+	padding: 0 20px; }
+@media all and (min-width: 675px) {
+	.container {
+		max-width: 650px; }
+	button {
+		background-color: #4285F4;
+		border: 0;
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+		color: #FFF;
+		margin: 0 20px;
+		text-transform: uppercase;
+		font-size: 22px; }
+	button img {
+		width: 60px;
+		height: 60px; }
+}

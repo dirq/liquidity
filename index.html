@@ -1,0 +1,76 @@
+<!doctype html>
+<html manifest="offline.appcache" >
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Liquidity helps you track what, you drunk.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>liquidity</title>
+
+    <!-- Add to homescreen
+    <link rel="manifest" href="manifest.json">
+      --><!-- Fallback to homescreen for Chrome <39 on Android
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="liquidity">
+    <link rel="icon" sizes="192x192" href="img/touch/chrome-touch-icon-192x192.png">
+
+      -->
+
+
+
+    <!-- Add to homescreen for Safari on iOS  -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- iOS menu bar OVER our app -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="liquidity">
+    <link rel="apple-touch-icon" href="img/touch/apple-touch-icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color)
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#4285F4">
+
+    <meta name="theme-color" content="#4285F4">
+      -->
+    <link rel="shortcut icon" href="/images/touch/favicon.ico">
+
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <div id="disconnected" data-bind="visible: !isOnline()">
+            <img src="img/disconnected.svg"/> no service
+        </div>
+        <h1><strong>Liquid</strong>ity</h1>
+
+    </div>
+</header>
+<main class="container">
+    <p>We know you're thirsty. So darn thirsty. But who has time to remember what was drank. Or was it drinken? Either way, Liquidity helps you track
+        your gluttonous consumptions. So long as it fits within our taxonomy.</p>
+
+    <h2 id="get-started">I Just Dranked:</h2>
+
+    <!--<p>--><!--<button data-beverage="beer">--><!--<img src="img/beer.png"/>Beer--><!--</button>--><!--<button data-beverage="coffee">-->
+    <!--<img src="img/coffee.png"/>Coffee--><!--</button>--><!--<button data-beverage="water">--><!--<img src="img/water.png"/>Water-->
+    <!--</button>--><!--</p>-->
+    <p data-bind="foreach: availableDrinks">
+        <button data-bind="click: $parent.addDrink"><img data-bind="attr: {src: 'img/' + $data + '.png'}"/><span data-bind="text: $data"></span>
+        </button>
+    </p>
+
+    <h3>Drunked <span data-bind="text: drinkLog().length"></span> Things:</h3>
+    <ul id="drinkLog" data-bind="foreach: drinkLog">
+        <li><span class="logEntry">a <span data-bind="text: name"></span>, <span data-bind="timeAgo: time"></span></span>
+            <a class="removeBtn" data-bind="click: $parent.removeDrink">X</a></li>
+    </ul>
+</main>
+
+<script src="scripts/lib/modernizr.custom.js"></script>
+<script src="scripts/lib/jquery-1.11.2.min.js"></script>
+<script src="scripts/lib/knockout-3.3.0.js"></script>
+<script src="scripts/common.js"></script>
+<script src="scripts/liquidity.js"></script>
+
+</body>
+</html>
