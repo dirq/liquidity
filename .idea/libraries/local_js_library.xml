@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="local-js-library" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/scripts/lib" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/scripts/lib" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

@@ -1,6 +1,6 @@
 /*!
 To install, run this from the terminal in the project root folder,
-you MAY have to prefix it with sudo:
+you MAY have to prefix it with sudo if NPM isn't set up quite right:
 
 npm install
 
@@ -9,18 +9,14 @@ To watch files and build them when they change, run:
 
 gulp watch
 
-
-To run the page in the browser and sync your changes automatically, run:
-
-gulp serve
 */
 
 // Load plugins
 var gulp = require('gulp'),
 	replace = require('gulp-replace');
 
-
-gulp.task('updateAppCacheManifest', function () {
+gulp.task('updateAppCacheManifest', function ()
+{
 	//4 digit random version number
 	//start with this in the manifest text file:      #v:0000
 	gulp.src('./offline.appcache')
@@ -32,7 +28,8 @@ gulp.task('updateAppCacheManifest', function () {
 });
 
 // Watch
-gulp.task('watch', function() {
+gulp.task('watch', function ()
+{
 	gulp.watch(
 		[
 			'./*.html',

@@ -10,6 +10,8 @@ var liquidity = (function ($, modernizr, ko, undefined)
 		storageKey = 'liquidity-drinkLog',
 		pingTimer;
 
+	//this will hold our knockout view model
+	//used for binding in the HTML
 	self.viewModel;
 
 	function log(msg)
@@ -20,25 +22,32 @@ var liquidity = (function ($, modernizr, ko, undefined)
 		}
 	}
 
-	function showInstallScreenIfNeeded(){
+	function showInstallScreenIfNeeded()
+	{
 		//enable "install to home screen" on the iPhone
-		if (("standalone" in window.navigator) && !window.navigator.standalone){
+		if (("standalone" in window.navigator) && !window.navigator.standalone)
+		{
 			//standalone is available, but we're not in it.
-			//show the splashscreen and stop everything else
+			//show the splash screen and stop everything else
 			log('not in standalone, show splash screen here');
-			return;
 		}
 	}
 
 	//knockout view model
-	function ViewModel(){
+	function ViewModel()
+	{
 		var vm = this;
 
+		//creates buttons, make sure there is an image for each
 		vm.availableDrinks = ['beer', 'coffee', 'water'];
 
+		//holds all the things that we have drunk
+		//originally comes from local storage via loadDrinkLog
 		vm.drinkLog = ko.observableArray([]);
 
-		vm.addDrink = function(name){
+		//create a new drink log entry from a button
+		vm.addDrink = function (name)
+		{
 			log('adding drink ' + name);
 			//add at the beginning of the array
 			vm.drinkLog.unshift({
@@ -48,31 +57,43 @@ var liquidity = (function ($, modernizr, ko, undefined)
 			vm.saveDrinkLog();
 		};
 
-		vm.removeDrink = function(drink){
+		//delete a drink log entry from list button
+		vm.removeDrink = function (drink)
+		{
 			log('removing drink ' + drink);
 			//add at the beginning of the array
 			vm.drinkLog.remove(drink);
 			vm.saveDrinkLog();
 		};
 
-		vm.loadDrinkLog = function(){
-			if (supportsLocalStorage){
+		//populate the view modals drink log from local storage
+		vm.loadDrinkLog = function ()
+		{
+			if (supportsLocalStorage)
+			{
 				var drinkLog = localStorage[storageKey];
 				if (!drinkLog || drinkLog.length === 0)
+				{
 					return [];
+				}
 
 				var drinkLogArray = JSON.parse(drinkLog);
 
-				if (!drinkLogArray || drinkLogArray.length === 0 ){
+				if (!drinkLogArray || drinkLogArray.length === 0)
+				{
 					drinkLogArray = [];
 				}
-				else{
-					//sort it
-					drinkLogArray.sort(function(a,b){
-						if (a.time > b.time){
+				else
+				{
+					//sort it, most recent first
+					drinkLogArray.sort(function (a, b)
+					{
+						if (a.time > b.time)
+						{
 							return -1;
 						}
-						if (a.time < b.time){
+						if (a.time < b.time)
+						{
 							return 1;
 						}
 						return 0;
@@ -86,7 +107,9 @@ var liquidity = (function ($, modernizr, ko, undefined)
 			}
 		};
 
-		vm.saveDrinkLog = function(){
+		//store the drink log as JSON in local storage
+		vm.saveDrinkLog = function ()
+		{
 			if (supportsLocalStorage)
 			{
 				localStorage[storageKey] = ko.toJSON(vm.drinkLog());
@@ -100,24 +123,26 @@ var liquidity = (function ($, modernizr, ko, undefined)
 	}
 
 	//ping to see if I'm online or not
-	pingTimer = setInterval(function ping() {
+	pingTimer = setInterval(function ping()
+	{
 		$.ajax({
-			url: '/api/ping.php',
-			type: 'GET',
-			timeout: 500, //.5 sec
-			accepts: 'application/json',
+			url        : '/api/ping.php',
+			type       : 'GET',
+			timeout    : 500, //.5 sec
+			accepts    : 'application/json',
 			contentType: 'application/json'
 		})
-			.done(function (data, textStatus, jqXHR) {
+			.done(function (data, textStatus, jqXHR)
+			{
 				log('online');
 				self.viewModel.isOnline(true);
 			})
-			.fail(function (fjqXHR, textStatus, errorThrown) {
+			.fail(function (fjqXHR, textStatus, errorThrown)
+			{
 				log('offline');
 				self.viewModel.isOnline(false);
 			});
 	}, 5000); //5 sec
-
 
 	self.init = function ()
 	{
@@ -130,9 +155,8 @@ var liquidity = (function ($, modernizr, ko, undefined)
 		showInstallScreenIfNeeded();
 	};
 
-
 	return self;
 }(jQuery, Modernizr, ko));
 
-//jquery load
+//DOM ready
 $(liquidity.init);

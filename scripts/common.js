@@ -1,4 +1,6 @@
-function toTimeAgo (dt) {
+//show a pretty display of time relative to now
+function toTimeAgo(dt)
+{
 	var secs = (((new Date()).getTime() - dt.getTime()) / 1000),
 		days = Math.floor(secs / 86400);
 
@@ -14,14 +16,17 @@ function toTimeAgo (dt) {
 		days < 365 && Math.ceil(days / 30) + " months ago" ||
 		days < 730 && "one year ago" ||
 		Math.ceil(days / 365) + " years ago";
-};
+}
 
+//custom knockout binding to parse a date and return the "time ago"
 ko.bindingHandlers.timeAgo = {
-	update: function (element, valueAccessor) {
+	update: function (element, valueAccessor)
+	{
 		var val = ko.utils.unwrapObservable(valueAccessor()),
 			date = new Date(val), // WARNING: this is not compatibile with IE8
 			timeAgo = toTimeAgo(date);
-		return ko.bindingHandlers.html.update(element, function () {
+		return ko.bindingHandlers.html.update(element, function ()
+		{
 			return '<time datetime="' + encodeURIComponent(val) + '">' + timeAgo + '</time>';
 		});
 	}

@@ -2,6 +2,8 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{liquidity node_modules}" />
-    <file url="file://$PROJECT_DIR$/scripts/liquidity.js" libraries="{jquery, knockout-DefinitelyTyped}" />
+    <file url="file://$PROJECT_DIR$/scripts/common.js" libraries="{jquery, local-js-library}" />
+    <file url="file://$PROJECT_DIR$/scripts/liquidity.js" libraries="{jquery, local-js-library}" />
+    <file url="PROJECT" libraries="{Knockout-2.2.1, jquery, local-js-library, modernizr-DefinitelyTyped}" />
   </component>
 </project>

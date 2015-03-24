@@ -10,12 +10,12 @@
     AddType application/javascript                      js
 
     # Manifest files
-
     <Files "manifest.json">
        AddType application/manifest+json                json
     </Files>
-
     AddType application/x-web-app-manifest+json         webapp
+
+    # ************* HTML5 Application Cache Manifest *******************
     AddType text/cache-manifest                         appcache
 
     # Web fonts
@@ -40,8 +40,9 @@
 
     # Manifest files
     ExpiresByType application/manifest+json             "access plus 1 year"
-
     ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
+
+    # ************* HTML5 Application Cache Manifest *******************
     ExpiresByType text/cache-manifest                   "access plus 0 seconds"
 
 </IfModule>
