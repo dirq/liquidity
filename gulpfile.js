@@ -17,8 +17,6 @@ gulp serve
 
 // Load plugins
 var gulp = require('gulp'),
-	inject = require('gulp-inject-string'),
-	insertLines = require('gulp-insert-lines'),
 	replace = require('gulp-replace');
 
 
