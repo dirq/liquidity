@@ -15,6 +15,8 @@ gulp watch
 var gulp = require('gulp'),
 	replace = require('gulp-replace');
 
+//this little guy will automatically change the manifest file
+//when you change another file in this project
 gulp.task('updateAppCacheManifest', function ()
 {
 	//4 digit random version number
@@ -27,7 +29,7 @@ gulp.task('updateAppCacheManifest', function ()
 		.pipe(gulp.dest('./'));
 });
 
-// Watch
+// Watch the files and run some tasks
 gulp.task('watch', function ()
 {
 	gulp.watch(

@@ -41,13 +41,16 @@
     <h2 id="get-started">I Just Dranked:</h2>
 
     <p data-bind="foreach: availableDrinks">
-        <button data-bind="click: $parent.addDrink"><img data-bind="attr: {src: 'img/' + $data + '.png'}"/><span data-bind="text: $data"></span>
+        <button data-bind="click: $parent.addDrink">
+            <img data-bind="attr: {src: 'img/' + $data + '.png'}"/>
+            <span data-bind="text: $data"></span>
         </button>
     </p>
 
     <h3>Drunked <span data-bind="text: drinkLog().length"></span> Things:</h3>
     <ul id="drinkLog" data-bind="foreach: drinkLog">
-        <li><span class="logEntry">a <span data-bind="text: name"></span>, <span data-bind="timeAgo: time"></span></span>
+        <li><span class="logEntry">a <span data-bind="text: name"></span>,
+            <span data-bind="timeAgo: time"></span></span>
             <a class="removeBtn" data-bind="click: $parent.removeDrink">X</a></li>
     </ul>
 </main>
